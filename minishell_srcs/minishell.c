@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 10:40:32 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/24 19:24:23 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/24 20:52:49 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ char		*sh_read_line(void)
 	char	**file_commands;
 	int		fd;
 
-	if ((get_next_line(0, &line) == 1) && !ft_strncmp(line, "./", 2) && (fd = open(line, O_RDONLY)) >= 0)
+	if ((get_next_line(0, &line) == 1) && !ft_strncmp(line, "./", 2)
+		&& (fd = open(line, O_RDONLY)) >= 0)
 	{
 		file_commands = ft_array_push(ft_arraynew(0), line);
 		ft_strdel(&line);
@@ -71,32 +72,34 @@ char		*sh_read_line(void)
 		ft_mem_arrdel((void**)file_commands);
 		close(fd);
 	}
-	// else if (ft_strcmp(line, "exit"))
-	// {
-	// 	ft_printf("%s: command not found\n", line);
-	// }
+/*
+	else if (ft_strcmp(line, "exit"))
+	{
+		ft_printf("%s: command not found\n", line);
+	}
+*/
 	return (line);
 }
 
-void		minishell(t_shell *info)
+void		minishell(t_shell *data)
 {
 	int		status;
 	char	*line;
 	char	**commands;
 
+	sh_form_struct(data);
 	status = 1;
 	while (status)
 	{
-		ft_printf("> ");
+		ft_printf("$> ");
 		line = sh_read_line();
 		commands = ft_strsplit(line, ' ');
 		// ft_printf("line : |%s|\n", line);
 		status = shell_execute(commands);
 		ft_strdel(&line);
 		ft_mem_arrdel((void**)(commands));
-		
 	}
-	ft_mem_arrdel((void**)info->env);
+	ft_mem_arrdel((void**)data->env);
 }
 
 

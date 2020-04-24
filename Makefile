@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/04/24 10:50:31 by jrignell         ###   ########.fr        #
+#    Updated: 2020/04/24 20:32:03 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ SRC_DIR := ./minishell_srcs
 OBJ_DIR := ./obj
 
 SRC :=	main.c \
-		minishell.c
+		minishell.c \
+		sh_form_struct.c
 		
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

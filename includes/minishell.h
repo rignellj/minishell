@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/24 18:51:54 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/24 20:31:48 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_shell
 	int		ac;
 	char	**av;
 	char	**env;
+	char	**paths;
 }				t_shell;
 
 
@@ -47,5 +48,6 @@ typedef struct	s_shell
 */
 
 void	minishell(t_shell *info);
+void	sh_form_struct(t_shell *d);
 
 #endif
