@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/24 14:04:52 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/17 14:46:47 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/24 19:29:58 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ static char		**write_chars_to_array(char const *s, char **array,
 {
 	size_t	i;
 	size_t	k;
-	char	*o_str;
+	char	*str;
 	size_t	l;
 	size_t	words;
 
-	o_str = (char*)s;
+	str = (char*)s;
 	i = 0;
 	words = count_words(s, c);
 	while (i < words)
@@ -68,7 +68,7 @@ static char		**write_chars_to_array(char const *s, char **array,
 		if (!(array[i] = (char*)malloc(k + 1)))
 			return (NULL);
 		while (k--)
-			array[i][l++] = o_str[j++];
+			array[i][l++] = str[j++];
 		array[i][l] = '\0';
 		++i;
 	}

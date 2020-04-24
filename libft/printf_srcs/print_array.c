@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/03 17:05:25 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/17 16:04:55 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/24 19:33:23 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int			print_array(t_format *f, char **array)
 		len = 6;
 		ft_putstr("(null)");
 	}
+	ft_struct_del(f);
 	return (len);
 }
