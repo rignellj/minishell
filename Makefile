@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/04/23 20:01:02 by jrignell         ###   ########.fr        #
+#    Updated: 2020/04/23 20:46:27 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ fclean: clean
 	
 shell: $(OBJ_DIR) $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) libft/printf_srcs/libftprintf.a
+	@make clean
 
 re: fclean all
 

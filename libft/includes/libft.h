@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/23 13:07:04 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/24 19:19:38 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 ********************************************************************************
 */
 
-# define BUFF_SIZE 25
-# define FD_SIZE 4000
+# define BUFF_SIZE 32
+# define FD_SIZE 4096
 # define FT_ULONG_MAX 18446744073709551615
 # define FT_LONG_MAX 9223372036854775807
 # define FT_LONG_MIN -9223372036854775808
@@ -156,6 +156,7 @@ char				*ft_itoa_base_u(unsigned long long int value,
 char				**ft_strsplit(char const *s, char c);
 char				**ft_array_push(char **old, char const *append);
 char				**ft_arraynew(size_t size);
+char				**ft_arraydup(const char **tab);
 
 /*
 ********************************************************************************
