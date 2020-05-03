@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 15:33:56 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/23 19:48:10 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/29 14:16:05 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,46 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include "../../includes/libft.h"
+
+# define CBLACK "\x1B[30m"
+# define CBLACKB "\x1B[1;30m"
+# define CBBLACK "\x1B[90m"
+# define CBBLACKB "\x1B[1;90m"
+
+# define CRED "\x1B[31m"
+# define CREDB "\x1B[1;31m"
+# define CBRED "\x1B[91m"
+# define CBREDB "\x1B[1;91m"
+
+# define CGREEN "\x1B[32m"
+# define CGREENB "\x1B[1;32m"
+# define CBGREEN "\x1B[92m"
+# define CBGREENB "\x1B[1;92m"
+
+# define CYELLOW "\x1B[33m"
+# define CYELLOWB "\x1B[1;33m"
+# define CBYELLOW "\x1B[93m"
+# define CBYELLOWB "\x1B[1;93m"
+
+# define CBLUE "\x1B[34m"
+# define CBLUEB "\x1B[1;34m"
+# define CBBLUE "\x1B[94m"
+# define CBBLUEB "\x1B[1;94m"
+
+# define CMAGENTA "\x1B[35m"
+# define CMAGENTAB "\x1B[1;35m"
+# define CBMAGENTA "\x1B[95m"
+# define CBMAGENTAB "\x1B[1;95m"
+
+# define CCYAN "\x1B[36m"
+# define CCYANB "\x1B[1;36m"
+# define CBCYAN "\x1B[96m"
+# define CBCYANB "\x1B[1;96m"
+
+# define CWHITE "\x1B[37m"
+# define CWHITEB "\x1B[1;37m"
+
+# define CRESET "\x1B[0m"
 
 typedef struct	s_format
 {

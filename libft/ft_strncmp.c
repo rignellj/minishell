@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 16:16:39 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:42:46 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/02 13:52:24 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
-	if (!n)
-		return (0);
+	if (!n || !s1 || !s2)
+		return (-1);
 	i = 0;
 	while (i < n - 1 && s1[i] == s2[i] && s1[i] && s2[i])
 		++i;

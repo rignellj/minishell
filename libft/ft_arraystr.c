@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_arraystr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 12:25:01 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/29 17:01:18 by jrignell         ###   ########.fr       */
+/*   Created: 2020/04/29 18:06:14 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/02 16:42:32 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_memdel(void **ap)
+char	*ft_arraystr(const char **tab, const char *s)
 {
-	if (ap != NULL && *ap != NULL)
+	size_t	i;
+	size_t	len;
+	char	**arr;
+	char	*str;
+
+	str = (char *)s;
+	arr = (char **)tab;
+	i = 0;
+	len = ft_strlen(str);
+	while (arr && arr[i] && str)
 	{
-		free(*ap);
-		*ap = NULL;
+		if (ft_strncmp(arr[i], str, len) == 0)
+			return (arr[i]);
+		i++;
 	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/24 19:19:38 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/03 15:50:16 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@
 ********************************************************************************
 */
 
+# define FT_EXIT_FAILURE 1
+# define FT_EXIT_SUCCESS 0
+# define FT_STDIN_FILENO 0
+# define FT_STDOUT_FILENO 1
+# define FT_STDERR_FILENO 2
 # define BUFF_SIZE 32
 # define FD_SIZE 4096
 # define FT_ULONG_MAX 18446744073709551615
@@ -107,7 +112,7 @@ int					ft_strnequ(char const *s1, char const *s2, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 int					ft_atoi_base(const char *str, int str_base);
 
-size_t				ft_arraylen(const char **arr);
+size_t				ft_arraylen(const void **arr);
 size_t				ft_strlen(const char *str);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 
@@ -119,6 +124,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 ********************************************************************************
 */
 
+char				*ft_arraystr(char const **tab, const char *s);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_implode(char **s);
@@ -134,7 +140,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_itoa(int n);
 char				*ft_strdup(const char *s1);
 char				*ft_strjoin(char const *s1, char const *s2);
-char				*ft_joindel(char const *s1, char const *s2);
+char				*ft_joindel(char *s1, char *s2);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
@@ -156,7 +162,7 @@ char				*ft_itoa_base_u(unsigned long long int value,
 char				**ft_strsplit(char const *s, char c);
 char				**ft_array_push(char **old, char const *append);
 char				**ft_arraynew(size_t size);
-char				**ft_arraydup(const char **tab);
+char				**ft_arraydup(char const **tab);
 
 /*
 ********************************************************************************
@@ -199,6 +205,16 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_memalloc(size_t size);
+
+/*
+********************************************************************************
+**                                                                            **
+**                         VOID ** FUNCTIONS                                  **
+**                                                                            **
+********************************************************************************
+*/
+
+void				**ft_ptr_push(void const **src, void *ptr);
 
 /*
 ********************************************************************************

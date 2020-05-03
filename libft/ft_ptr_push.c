@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_ptr_push.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 12:25:01 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/29 17:01:18 by jrignell         ###   ########.fr       */
+/*   Created: 2020/04/25 19:00:06 by jrignell          #+#    #+#             */
+/*   Updated: 2020/04/26 21:00:29 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_memdel(void **ap)
+void	**ft_ptr_push(void const **src, void *ptr)
 {
-	if (ap != NULL && *ap != NULL)
+	void	**dst;
+	void	**tmp;
+	size_t	len;
+
+	tmp = (void**)src;
+	len = ft_arraylen(src);
+	if (!(dst = (void**)ft_memalloc(sizeof(*dst) * (len + 2))))
+		return (NULL);
+	dst[len + 1] = NULL;
+	dst[len] = ptr;
+	while (len--)
 	{
-		free(*ap);
-		*ap = NULL;
+		dst[len] = tmp[len];
 	}
+	return (dst);
 }

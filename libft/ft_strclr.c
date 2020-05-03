@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrignell <jere.rignell@aalto.fi>           +#+  +:+       +#+        */
+/*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 14:01:47 by jrignell          #+#    #+#             */
-/*   Updated: 2019/10/28 18:56:41 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/02 16:20:36 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_strclr(char *s)
 {
-	char	*ptr;
-
-	ptr = s;
-	while (ptr && *ptr)
-		*(ptr++) = '\0';
+	while (s && *s)
+		*(s++) = '\0';
 }

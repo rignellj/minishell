@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 10:40:32 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/24 20:52:49 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/03 18:48:19 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,28 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-void		sh_error(char *error)
+int		sh_error(char *error)
 {
-	ft_putstr_fd(error, STDERR_FILENO);
+	ft_putstr_fd(error, FT_STDERR_FILENO);
 	ft_strdel(&error);
+	return (0);
 }
 
-int			shell_execute(char **commands)
+int			shell_execute(char **commands, t_shell *d)
 {
-	size_t	i;
 	pid_t	pid;
-	char	*join;
 	int		status;
 
-	i = 0;
-	while (commands[i])
-	{
-		if (ft_strcmp("exit", commands[i]) == 0)
-			return (0);
-		i++;
-	}
-	if (!commands)
+	if (!ft_strcmp("exit", commands[0]) || !ft_strcmp("bye", commands[0]))
+		return (sh_exit(d));
+	if (sh_builtin_exec(d, commands)) //check built-in commands
 		return (1);
-	if ((pid = fork()) == 0 && (join = ft_strjoin("/bin/", commands[0])))
+	ft_printf("exec path: %s\n", d->exec_path);
+	if ((pid = fork()) == 0)
 	{
-		if (execve(join, commands, NULL) == -1)
-			sh_error(ft_strjoin(commands[0], ": command not found\n"));
-		ft_strdel(&join);
-		exit(EXIT_FAILURE);
+		if (execve(d->exec_path, d->commands, d->env) == -1)
+			sh_error(ft_strjoin(d->commands[0], ": command not found\n"));
+		exit(FT_EXIT_FAILURE);
 	}
 	else if (pid < 0)
 		sh_error(ft_strdup("Forking error\n"));
@@ -52,7 +46,7 @@ int			shell_execute(char **commands)
 	return (1);
 }
 
-char		*sh_read_line(void)
+char		*sh_read_line(t_shell *d)
 {
 	char	*line;
 	char	**file_commands;
@@ -70,14 +64,9 @@ char		*sh_read_line(void)
 		}
 		line = ft_implode(file_commands);
 		ft_mem_arrdel((void**)file_commands);
+		d->fd = fd;
 		close(fd);
 	}
-/*
-	else if (ft_strcmp(line, "exit"))
-	{
-		ft_printf("%s: command not found\n", line);
-	}
-*/
 	return (line);
 }
 
@@ -91,37 +80,19 @@ void		minishell(t_shell *data)
 	status = 1;
 	while (status)
 	{
-		ft_printf("$> ");
-		line = sh_read_line();
+		sh_display_prompt(data);
+		line = sh_read_line(data);
+		data->user_command = line;
 		commands = ft_strsplit(line, ' ');
-		// ft_printf("line : |%s|\n", line);
-		status = shell_execute(commands);
+		status = *commands ? shell_execute(commands, data) : 1;
+		// ft_printf("status : %d commands[0] %s\n", status, *commands);
 		ft_strdel(&line);
+		data->i ? ft_mem_arrdel((void **)data->commands) : 0;
 		ft_mem_arrdel((void**)(commands));
+		sh_init_struct(data);
 	}
+	ft_mem_arrdel((void**)data->built_ins);
+	ft_strdel(&(data->exec_path));
+	ft_mem_arrdel((void **)data->backslash);
 	ft_mem_arrdel((void**)data->env);
 }
-
-
-// if (pid == 0)
-// {
-//     if (execvp(args[0], args) == -1)
-// 	{
-//       perror("lsh");
-//     }
-//     exit(EXIT_FAILURE);
-// }
-// else if (pid < 0)
-// {
-//     // Error forking
-//     perror("lsh");
-// }
-// else
-// {
-//     // Parent process
-//     do
-// 	{
-//       wpid = waitpid(pid, &status, WUNTRACED);
-//     }
-// 	while (!WIFEXITED(status) && !WIFSIGNALED(status));
-// }

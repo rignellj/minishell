@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   sh_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 12:25:01 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/29 17:01:18 by jrignell         ###   ########.fr       */
+/*   Created: 2020/05/03 15:16:00 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/03 15:16:47 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include "../includes/minishell.h"
 
-void	ft_memdel(void **ap)
+int		sh_exit(t_shell *d)
 {
-	if (ap != NULL && *ap != NULL)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	d->i = 0;
+	return (0);
 }

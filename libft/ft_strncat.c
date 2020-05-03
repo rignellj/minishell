@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 12:22:48 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:42:42 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/04/30 12:52:40 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	size_t	j;
 
 	i = 0;
-	while (s1[i] != '\0')
+	while (s1[i])
 		++i;
 	j = 0;
-	while (s2[j] != '\0' && (size_t)j < n)
+	while (s2[j] && j < n)
 	{
 		s1[i + j] = s2[j];
 		++j;

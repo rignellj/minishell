@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/04/24 20:32:03 by jrignell         ###   ########.fr        #
+#    Updated: 2020/05/03 15:18:08 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,14 @@ SRC_DIR := ./minishell_srcs
 OBJ_DIR := ./obj
 
 SRC :=	main.c \
+		sh_exit.c \
+		sh_env.c \
 		minishell.c \
-		sh_form_struct.c
+		sh_form_struct.c \
+		sh_builtin_exec.c \
+		sh_init_struct.c \
+		sh_check_builtin.c \
+		sh_display_prompt.c
 		
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 

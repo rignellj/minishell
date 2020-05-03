@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 16:40:44 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/12 14:42:59 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/03 17:57:51 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strnew(size_t size)
 	if (!(new = ft_memalloc(size + 1)))
 		return (NULL);
 	i = 0;
-	while (i < size)
+	while (i <= size)
 		new[i++] = '\0';
 	return (new);
 }

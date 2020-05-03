@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/18 13:33:40 by jrignell          #+#    #+#              #
-#    Updated: 2020/04/24 19:19:20 by jrignell         ###   ########.fr        #
+#    Updated: 2020/04/29 18:30:05 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,7 +100,9 @@ SRCS = ft_isalpha.c \
 	ft_lstget_first.c \
 	ft_lstget_last.c \
 	ft_lstiterif.c \
-	ft_arraydup.c
+	ft_arraydup.c \
+	ft_ptr_push.c \
+	ft_arraystr.c
 
 OBJ  = $(patsubst %.c, %.o, $(SRCS))
 

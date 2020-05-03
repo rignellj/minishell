@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 19:44:53 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/24 13:58:23 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/02 20:23:24 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_array_push(char **old, const char *append)
 	i = 0;
 	while (old[i])
 		i++;
-	if (!(new = (char**)ft_arraynew(i + 1)))
+	if (!(new = (char **)ft_arraynew(i + 1)))
 		return (NULL);
 	i = 0;
 	while (old[i])
@@ -31,7 +31,7 @@ char	**ft_array_push(char **old, const char *append)
 		i++;
 	}
 	new[i++] = ft_strdup(append);
-	ft_mem_arrdel((void**)old);
+	ft_mem_arrdel((void **)old);
 	new[i] = NULL;
 	return (new);
 }

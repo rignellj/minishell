@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   sh_init_struct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/23 12:25:01 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/29 17:01:18 by jrignell         ###   ########.fr       */
+/*   Created: 2020/04/25 12:45:11 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/03 18:50:29 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/minishell.h"
 #include <stdlib.h>
 
-void	ft_memdel(void **ap)
+void	sh_init_struct(t_shell *data)
 {
-	if (ap != NULL && *ap != NULL)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	data->fd = -1;
+	ft_strdel(&(data->exec_path));
+	data->exec_path = ft_strnew(0);
+	ft_mem_arrdel((void **)data->backslash);
+	data->backslash = ft_arraynew(0);
 }
