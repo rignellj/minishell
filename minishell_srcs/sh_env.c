@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 13:13:15 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/02 20:15:59 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/05 16:06:10 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "minishell.h"
 #include <stdlib.h>
 
 static int	sh_unsetenv(t_shell *d)
@@ -91,9 +91,9 @@ static int	sh_setenv(t_shell *d)
 	return (sh_setenv_new(d));
 }
 
-int			sh_env(t_shell *d, char *p, size_t len)
+int			sh_env(t_shell *d, size_t len)
 {
-	if (len == 3 || !p)
+	if (len == 3)
 		return (sh_print_env(d));
 	if (len == 6)
 		return (sh_setenv(d));

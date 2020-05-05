@@ -6,11 +6,11 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:27:38 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/03 18:47:19 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/05 16:06:44 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "minishell.h"
 #include <stdlib.h>
 
 void	sh_form_struct(t_shell *d)

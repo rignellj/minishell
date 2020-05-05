@@ -6,15 +6,15 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 10:40:32 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/03 18:48:19 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/05 17:42:54 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "minishell.h"
 #include <stdlib.h>
 #include <fcntl.h>
 
-int		sh_error(char *error)
+int			sh_error(char *error)
 {
 	ft_putstr_fd(error, FT_STDERR_FILENO);
 	ft_strdel(&error);
@@ -28,9 +28,8 @@ int			shell_execute(char **commands, t_shell *d)
 
 	if (!ft_strcmp("exit", commands[0]) || !ft_strcmp("bye", commands[0]))
 		return (sh_exit(d));
-	if (sh_builtin_exec(d, commands)) //check built-in commands
+	if (sh_builtin_exec(d, commands))
 		return (1);
-	ft_printf("exec path: %s\n", d->exec_path);
 	if ((pid = fork()) == 0)
 	{
 		if (execve(d->exec_path, d->commands, d->env) == -1)
@@ -63,7 +62,7 @@ char		*sh_read_line(t_shell *d)
 			ft_strdel(&line);
 		}
 		line = ft_implode(file_commands);
-		ft_mem_arrdel((void**)file_commands);
+		ft_mem_arrdel((void **)file_commands);
 		d->fd = fd;
 		close(fd);
 	}
@@ -86,13 +85,11 @@ void		minishell(t_shell *data)
 		commands = ft_strsplit(line, ' ');
 		status = *commands ? shell_execute(commands, data) : 1;
 		// ft_printf("status : %d commands[0] %s\n", status, *commands);
+		// ft_strdel(&data->user_command);
 		ft_strdel(&line);
 		data->i ? ft_mem_arrdel((void **)data->commands) : 0;
-		ft_mem_arrdel((void**)(commands));
+		ft_mem_arrdel((void **)(commands));
 		sh_init_struct(data);
 	}
-	ft_mem_arrdel((void**)data->built_ins);
-	ft_strdel(&(data->exec_path));
-	ft_mem_arrdel((void **)data->backslash);
-	ft_mem_arrdel((void**)data->env);
+	sh_del_struct(data);
 }

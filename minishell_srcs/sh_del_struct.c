@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arraystr.c                                      :+:      :+:    :+:   */
+/*   sh_del_struct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 18:06:14 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/04 20:15:51 by jrignell         ###   ########.fr       */
+/*   Created: 2020/05/05 15:05:28 by jrignell          #+#    #+#             */
+/*   Updated: 2020/05/05 16:05:53 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-char	*ft_arraystr(const char **tab, const char *s)
+void	sh_del_struct(t_shell *d)
 {
-	size_t	i;
-	size_t	len;
-	char	**arr;
-	char	*str;
-
-	str = (char *)s;
-	arr = (char **)tab;
-	i = 0;
-	len = ft_strlen(str);
-	while (arr && arr[i] && str)
-	{
-		if (ft_strncmp(arr[i], str, len) == 0)
-			return (arr[i]);
-		i++;
-	}
-	return (NULL);
+	ft_mem_arrdel((void**)d->built_ins);
+	ft_strdel(&(d->exec_path));
+	ft_mem_arrdel((void **)d->backslash);
+	ft_mem_arrdel((void**)d->env);
 }

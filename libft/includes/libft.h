@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/03 15:50:16 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/04 13:03:20 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,6 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 ********************************************************************************
 */
 
-char				*ft_arraystr(char const **tab, const char *s);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 char				*ft_implode(char **s);
@@ -150,6 +149,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 					size_t len);
 char				*ft_itoa_base_u(unsigned long long int value,
 					int base, int upper);
+char				*ft_arraystr(char const **tab, const char *s);
 
 /*
 ********************************************************************************

@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/03 15:18:24 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/05 16:48:51 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,18 @@ typedef struct	s_shell
 */
 
 void			minishell(t_shell *info);
+char			*sh_read_line(t_shell *d);
+char			*sh_read_more_input(t_shell *d);
 int				sh_error(char *error);
 int				sh_exit(t_shell *d);
 void			sh_form_struct(t_shell *d);
 int				sh_display_prompt(t_shell *data);
+int				sh_trim_command(t_shell *d);
 int				sh_builtin_exec(t_shell *d, char **commands);
 void			sh_init_struct(t_shell *data);
 int				sh_check_builtin(t_shell *d, char *bic);
-int				sh_env(t_shell *d, char *p, size_t len);
+int				sh_change_dir(t_shell *d);
+int				sh_env(t_shell *d, size_t len);
+void			sh_del_struct(t_shell *d);
 
 #endif
