@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 10:40:32 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/05 17:42:54 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/07 19:10:49 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ void		minishell(t_shell *data)
 	{
 		sh_display_prompt(data);
 		line = sh_read_line(data);
-		data->user_command = line;
+		data->user_command = ft_strdup(line);
 		commands = ft_strsplit(line, ' ');
 		status = *commands ? shell_execute(commands, data) : 1;
 		// ft_printf("status : %d commands[0] %s\n", status, *commands);
-		// ft_strdel(&data->user_command);
+		ft_strdel(&data->user_command);
 		ft_strdel(&line);
 		data->i ? ft_mem_arrdel((void **)data->commands) : 0;
 		ft_mem_arrdel((void **)(commands));

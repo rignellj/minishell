@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 14:48:44 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/05 17:32:56 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/05 17:48:56 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static void	sh_expansions(t_shell *d)
 int			sh_trim_command(t_shell *d)
 {
 	sh_find_backslash(d);
-	// sh_read_more_input(d);
+	sh_read_more_input(d);
 	d->commands[1] && (*d->commands[1] == '~' || *d->commands[1] == '$') ?
 		sh_expansions(d) : 0;
 	return (1);

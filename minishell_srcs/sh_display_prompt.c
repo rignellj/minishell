@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 15:13:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/05 16:06:03 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/07 16:43:41 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,19 @@ int			sh_display_prompt(t_shell *d)
 	int		home;
 
 	if (getcwd(cwd, sizeof(cwd)) == NULL)
-		return (ft_printf("%s$>%s ", CBRED, CRESET));
+		return (ft_printf("%s➢%s ", CBREDB, CRESET));
 		sh_update_pwd(d, cwd);
 	if ((ptr = ft_strrchr(cwd, '/')) == NULL)
-		return (ft_printf("$> "));
+		return (ft_printf("%s➢%s ", CBREDB, CRESET));
 	if (!sh_home(d))
-		return (ft_printf("%s%s%s %s$>%s ",
-		CCYANB, ++ptr, CRESET, CBRED, CRESET));
+		return (ft_printf("%s%s%s %s➢%s ",
+		CCYANB, ++ptr, CRESET, CBREDB, CRESET));
 		home = !ft_strcmp(cwd, sh_home(d)) ? 1 : 0;
 	if (home)
-		return (ft_printf("%s~%s %s$>%s ", CCYANB, CRESET, CBRED, CRESET));
+		return (ft_printf("%s~%s %s➢%s ", CCYANB, CRESET, CBREDB, CRESET));
 	if (*(ptr + 1) == '\0')
-		return (ft_printf("%s%s%s %s$>%s ",
-		CCYANB, ptr, CRESET, CBRED, CRESET));
-		return (ft_printf("%s%s%s %s$>%s ",
-		CCYANB, ++ptr, CRESET, CBRED, CRESET));
+		return (ft_printf("%s%s%s %s➢%s ",
+		CCYANB, ptr, CRESET, CBREDB, CRESET));
+		return (ft_printf("%s%s%s %s➢%s ",
+		CCYANB, ++ptr, CRESET, CBREDB, CRESET));
 }

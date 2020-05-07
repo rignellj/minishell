@@ -6,12 +6,35 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:27:38 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/05 16:06:44 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/07 19:40:03 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 #include <stdlib.h>
+
+static void	sh_update_shell_env(t_shell *d)
+{
+	size_t	i;
+	char	cwd[1024];
+
+	i = 0;
+	if (getcwd(cwd, sizeof(cwd)) != NULL)
+	{
+		while (d->env[i])
+		{
+			if (ft_strncmp(d->env[i], "SHELL=", 6) == 0)
+			{
+				ft_strdel(&d->env[i]);
+				d->env[i] = ft_strjoin("SHELL=", cwd);
+				return ;
+			}
+			i++;
+		}
+	}
+		
+	
+}
 
 void	sh_form_struct(t_shell *d)
 {
@@ -27,4 +50,5 @@ void	sh_form_struct(t_shell *d)
 	d->built_ins[4] = ft_strdup("unsetenv");
 	d->exec_path = ft_strnew(0);
 	d->backslash = ft_arraynew(0);
+	sh_update_shell_env(d);
 }
