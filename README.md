@@ -7,4 +7,5 @@ First step in the creation of a shell. In this project, you will create a mini-s
 - Ctrl-D
 - Ctrl-C
 - Ctrl-Z
+- Ctrl-\
 - Ctrl-S and Ctrl-Q
