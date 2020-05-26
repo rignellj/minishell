@@ -3,6 +3,7 @@ First step in the creation of a shell. In this project, you will create a mini-s
 
 ###### Shell handles
 - Ctrl-V
+- Ctrl-O 
 - Ctrl-D
 - Ctrl-C
 - Ctrl-Z
