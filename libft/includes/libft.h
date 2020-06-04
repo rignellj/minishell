@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 10:08:35 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/07 12:35:38 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/05/26 13:38:05 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_isspace(int c);
 int					ft_atoi(const char *str);
+int					ft_putint_fd(int c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					get_next_line(const int fd, char **line);
