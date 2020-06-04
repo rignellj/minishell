@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 20:27:38 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/07 19:40:03 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/04 21:21:41 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void	sh_update_shell_env(t_shell *d)
 			i++;
 		}
 	}
-		
-	
 }
 
 void	sh_form_struct(t_shell *d)
@@ -41,7 +39,7 @@ void	sh_form_struct(t_shell *d)
 	if (!(d->built_ins = (char**)ft_memalloc(sizeof(*d->built_ins) * 6)))
 	{
 		sh_error(ft_strdup("allocation error, exiting..\n"));
-		exit(FT_EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	d->built_ins[0] = ft_strdup("echo");
 	d->built_ins[1] = ft_strdup("cd");

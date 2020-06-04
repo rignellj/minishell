@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/24 10:40:32 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/26 14:44:15 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/04 21:00:33 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int			sh_error(char *error)
 {
-	ft_putstr_fd(error, FT_STDERR_FILENO);
+	ft_putstr_fd(error, STDERR_FILENO);
 	ft_strdel(&error);
 	return (0);
 }

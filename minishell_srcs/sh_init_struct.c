@@ -6,12 +6,12 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:45:11 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/26 12:18:48 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/04 21:24:40 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <stdlib.h>
+// #include <stdlib.h>
 
 void	sh_init_struct(t_shell *data)
 {
