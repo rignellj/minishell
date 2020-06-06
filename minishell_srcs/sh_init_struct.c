@@ -6,19 +6,19 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:45:11 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/04 21:24:40 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 20:59:52 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 // #include <stdlib.h>
 
-void	sh_init_struct(t_shell *data)
+void	sh_init_struct(t_shell *sh)
 {
-	data->file_fd = -1;
-	data->i = 0;
-	ft_strdel(&(data->exec_path));
-	data->exec_path = ft_strnew(0);
-	ft_mem_arrdel((void **)data->backslash);
-	data->backslash = ft_arraynew(0);
+	sh->file_fd = -1;
+	sh->i = 0;
+	ft_strdel(&(sh->exec_path));
+	sh->exec_path = ft_strnew(0);
+	ft_mem_arrdel((void **)sh->backslash);
+	sh->backslash = ft_arraynew(0);
 }
