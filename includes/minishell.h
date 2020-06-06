@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/05/26 14:39:01 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 20:43:48 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@
 # define BSPACE 0x7F
 # define ASTERISK 0x2A
 # define MINUS 0x2D
+# define SQUOTE 0x27
+# define DQUOTE 0x22
+# define ESCC 0x5C
+# define EVEN 0x0
+# define UNEVEN 0x1
 
 /*
 ********************************************************************************
@@ -75,22 +80,24 @@ t_shell			*g_shell;
 ********************************************************************************
 */
 
-void			sh_init(int ac, char *av[], char *env[], t_shell *d);
+void			sh_init(int ac, char *av[], char *env[], t_shell *sh);
 void			sh_init_signal_handlers(void);
 void			minishell(t_shell *info);
-char			*sh_read_line(t_shell *d);
-char			*sh_read_more_input(t_shell *d);
+char			*sh_read_line(t_shell *sh);
+void			sh_command_parse(t_shell *sh);
+void			sh_put_args_to_array(t_shell *sh);
+char			*sh_read_more_input(t_shell *sh);
 int				sh_error(char *error);
-int				sh_exit(t_shell *d, char const *error);
-void			sh_form_struct(t_shell *d);
-int				sh_display_prompt(t_shell *data);
-int				sh_trim_command(t_shell *d);
-int				sh_builtin_exec(t_shell *d, char **commands);
-void			sh_init_struct(t_shell *data);
-int				sh_check_builtin(t_shell *d, char *bic);
-int				sh_change_dir(t_shell *d);
-int				sh_env(t_shell *d, size_t len);
-void			sh_del_command(t_shell *d, char *line, char **c);
-void			sh_del_struct(t_shell *d);
+int				sh_exit(t_shell *sh, char const *error);
+void			sh_form_struct(t_shell *sh);
+int				sh_display_prompt(t_shell *sh);
+int				sh_trim_command(t_shell *sh);
+int				sh_builtin_exec(t_shell *sh, char **commands);
+void			sh_init_struct(t_shell *sh);
+int				sh_check_builtin(t_shell *sh, char *bic);
+int				sh_change_dir(t_shell *sh);
+int				sh_env(t_shell *sh, size_t len);
+void			sh_del_command(t_shell *sh, char *line);
+void			sh_del_struct(t_shell *sh);
 
 #endif

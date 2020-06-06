@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/05/27 18:00:54 by jrignell         ###   ########.fr        #
+#    Updated: 2020/06/06 17:02:27 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC :=	main.c \
 		sh_init.c \
 		sh_exit.c \
 		minishell.c \
+		sh_read_line.c \
 		sh_change_dir.c \
 		sh_del_struct.c \
 		sh_init_struct.c \
@@ -30,9 +31,11 @@ SRC :=	main.c \
 		sh_form_struct.c \
 		sh_trim_command.c \
 		sh_builtin_exec.c \
+		sh_command_parse.c \
 		sh_check_builtin.c \
 		sh_display_prompt.c \
 		sh_read_more_input.c \
+		sh_put_args_to_array.c \
 		sh_init_signal_handlers.c
 		
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
