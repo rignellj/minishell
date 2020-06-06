@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 16:59:43 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/06 20:41:05 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 22:39:53 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,6 @@ static size_t	sh_skip_arguments(char const *str, int quote)
 	size_t	skip;
 
 	skip = 1;
-	// if (quote == DQUOTE)
-	// {
-	// 	while ((int)str[skip] != DQUOTE)
-	// 		skip++;
-	// 	return (skip);
-	// }
 	while (str[skip] && (int)str[skip] != quote)
 		skip++;
 	return (skip);
@@ -87,12 +81,11 @@ void	sh_put_args_to_array(t_shell *sh)
 	size_t	word_len;
 
 	num_args = sh_count_args(sh->user_command);
-	// ft_printf("num_args: %d\n", num_args);
-	// exit(1);
-	if (!(command_array = (char **)ft_memalloc(num_args + 1)))
+	// ft_printf("args: %d\n", num_args);
+	if (!(command_array = (char **)malloc(sizeof(*command_array) * num_args + 1)))
 		sh_exit(sh, "Malloc error. Exiting..\n");
 	i = 0;
-	command_array[num_args] = NULL;
+	command_array[num_args] = 0;
 	while (num_args--)
 	{
 		sh->user_command += sh_skip_white_space(sh->user_command);
@@ -107,11 +100,4 @@ void	sh_put_args_to_array(t_shell *sh)
 		i++;
 	}
 	sh->commands = command_array;
-	// i = 0;
-	// while (1)
-	// {
-	// 	if (command_array[i] == NULL)
-	// 		break ;
-	// 	ft_printf("%s\n", command_array[i++]);
-	// }
 }

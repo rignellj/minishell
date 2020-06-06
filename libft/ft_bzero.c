@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 11:11:25 by jrignell          #+#    #+#             */
-/*   Updated: 2020/04/29 17:57:16 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 22:23:08 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	unsigned char	*p;
 
 	p = (unsigned char*)s;
-	if (p && *p)
+	if (p)
 	{
 		while (n-- > 0)
 		*(p++) = 0;

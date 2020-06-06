@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/06 20:43:48 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 22:11:40 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ t_shell			*g_shell;
 void			sh_init(int ac, char *av[], char *env[], t_shell *sh);
 void			sh_init_signal_handlers(void);
 void			minishell(t_shell *info);
+int				sh_shell_execute(t_shell *sh);
 char			*sh_read_line(t_shell *sh);
 void			sh_command_parse(t_shell *sh);
 void			sh_put_args_to_array(t_shell *sh);
@@ -92,7 +93,7 @@ int				sh_exit(t_shell *sh, char const *error);
 void			sh_form_struct(t_shell *sh);
 int				sh_display_prompt(t_shell *sh);
 int				sh_trim_command(t_shell *sh);
-int				sh_builtin_exec(t_shell *sh, char **commands);
+int				sh_builtin_exec(t_shell *sh);
 void			sh_init_struct(t_shell *sh);
 int				sh_check_builtin(t_shell *sh, char *bic);
 int				sh_change_dir(t_shell *sh);

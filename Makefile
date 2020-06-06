@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/06/06 17:02:27 by jrignell         ###   ########.fr        #
+#    Updated: 2020/06/06 22:10:33 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC :=	main.c \
 		sh_form_struct.c \
 		sh_trim_command.c \
 		sh_builtin_exec.c \
+		sh_shell_execute.c \
 		sh_command_parse.c \
 		sh_check_builtin.c \
 		sh_display_prompt.c \

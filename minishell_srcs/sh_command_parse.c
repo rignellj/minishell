@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 14:51:43 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/06 20:41:17 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 22:21:54 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		sh_command_parse(t_shell *sh)
 {
 	char	*line;
 	int		even_or_uneven_quotes;
+	char	*user_commands;
 
 	even_or_uneven_quotes = UNEVEN;
 	while (even_or_uneven_quotes == UNEVEN)
@@ -62,5 +63,8 @@ void		sh_command_parse(t_shell *sh)
 		if (even_or_uneven_quotes == UNEVEN)
 			sh_combine_new_and_old_command(sh, line);
 	}
+	user_commands = sh->user_command;
 	sh_put_args_to_array(sh);
+	ft_strdel(&user_commands);
+	// ft_printf("|%s|\n", sh->commands[0]);
 }

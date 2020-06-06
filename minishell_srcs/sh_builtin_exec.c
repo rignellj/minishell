@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/25 12:10:09 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/06 20:57:55 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/06 22:26:29 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,18 @@ static int	sh_builtin(t_shell *sh)
 	return (0);
 }
 
-int			sh_builtin_exec(t_shell *sh, char **commands)
+int			sh_builtin_exec(t_shell *sh)
 {
-	sh->commands = ft_arraydup((const char**)commands);
+	// sh->commands = ft_arraydup((const char**)commands);
 	sh->i = 1;
-	sh_trim_command(sh);
+	// sh_trim_command(sh);
 	if (sh_builtin(sh))
 		return (1);
 	if (access(sh->commands[0], F_OK) == 0 || sh_exec(sh))
 	{
 		ft_strdel(&sh->exec_path);
 		sh->exec_path = ft_strdup(sh->commands[0]);
+		// ft_printf("command: |%s|\n", sh->commands[0]);
 		// ft_printf("%s~~~~~~~~~~~~%s\n", CREDB, CRESET);
 		// ft_printf("NOT BUILTIN COMMAND\n");
 		// ft_printf("%s~~~~~~~~~~~~%s\n", CREDB, CRESET);
