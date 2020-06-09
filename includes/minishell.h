@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/23 19:38:34 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/06 22:11:40 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/08 17:28:50 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void			minishell(t_shell *info);
 int				sh_shell_execute(t_shell *sh);
 char			*sh_read_line(t_shell *sh);
 void			sh_command_parse(t_shell *sh);
+void			sh_command_parse_quote_and_backslash(t_shell *sh);
 void			sh_put_args_to_array(t_shell *sh);
 char			*sh_read_more_input(t_shell *sh);
 int				sh_error(char *error);

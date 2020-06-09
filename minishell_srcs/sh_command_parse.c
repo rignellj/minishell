@@ -6,7 +6,7 @@
 /*   By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 14:51:43 by jrignell          #+#    #+#             */
-/*   Updated: 2020/06/06 22:21:54 by jrignell         ###   ########.fr       */
+/*   Updated: 2020/06/08 17:27:05 by jrignell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void		sh_command_parse(t_shell *sh)
 	user_commands = sh->user_command;
 	sh_put_args_to_array(sh);
 	ft_strdel(&user_commands);
+	sh_command_parse_quote_and_backslash(sh);
 	// ft_printf("|%s|\n", sh->commands[0]);
 }

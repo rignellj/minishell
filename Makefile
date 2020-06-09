@@ -6,7 +6,7 @@
 #    By: jrignell <jrignell@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/13 18:19:52 by jrignell          #+#    #+#              #
-#    Updated: 2020/06/06 22:10:33 by jrignell         ###   ########.fr        #
+#    Updated: 2020/06/08 17:29:26 by jrignell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,12 @@ SRC :=	main.c \
 		sh_display_prompt.c \
 		sh_read_more_input.c \
 		sh_put_args_to_array.c \
-		sh_init_signal_handlers.c
+		sh_init_signal_handlers.c \
+		sh_command_parse_quote_and_backslash.c
 		
 OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 
 all: $(NAME)
-
-# .SILENT:
 
 $(OBJ_DIR):
 	@/bin/mkdir -p $(OBJ_DIR)
